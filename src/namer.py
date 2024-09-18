@@ -2,23 +2,17 @@ import os
 import sys
 import io
 
+categories = ["Uni", "Projects", "Personal", "Work", "Misc"]
+
+directory_path = "C:/Users/simon/Downloads/test/"
+file = "mockup_1[Uni].png"
+
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
-directory_path = "C:/Users/simon/Downloads/test"
-
-items = os.listdir(directory_path)
-
-for item in items:
-    full_path = os.path.join(directory_path, item)
-    
+def rename_file(file_name: str, category: str):
+    full_path = os.path.join(directory_path, file_name)
     if os.path.isfile(full_path):
-        
-        filename, extension = os.path.splitext(item)
-        
-        new_filename = f"{filename}[Uni]{extension}"
-        new_full_path = os.path.join(directory_path, new_filename)
-        
-        os.rename(full_path, new_full_path)
-        
-        print(f'Renamed {full_path} to {new_full_path}')
-        
+        name, extension = os.path.splitext(file_name)
+        new_name = f"{name}[{category}]{extension}"
+        os.rename(full_path, os.path.join(directory_path, new_name))
+        return
