@@ -2,8 +2,6 @@ import os
 import sys
 import io
 
-categories = ["Uni", "Projects", "Personal", "Work", "Misc"]
-
 directory_path = "C:/Users/simon/Downloads/test/"
 file = "mockup_1[Uni].png"
 
